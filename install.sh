@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
 
 GRUB_NAME=""
+THEME_NAME="Aesthetic"
+OS_NAME=""
 
 function compile_grub() {
   echo -e "\e[1m\e[32m==> \e[97mApplying changes...\e[0m"
   ${GRUB_NAME}-mkconfig -o /boot/${GRUB_NAME}/grub.cfg
   echo -e "\e[1m\e[34m  -> \e[97mTheme successfuly applied! "
-  echo -e "\e[1m\e[34m  -> \e[97m@osmanonurkoc"
+  # echo -e "\e[1m\e[34m  -> \e[97m@osmanonurkoc"
   sleep 2
 }
 
 function update_grub_file() {
   grep -v GRUB_THEME < /etc/default/grub > /tmp/clean_grub
   mv /tmp/clean_grub /etc/default/grub
-  echo "GRUB_THEME=/boot/${GRUB_NAME}/themes/Papirus/theme.txt" >> /etc/default/grub
+  echo "GRUB_THEME=/boot/${GRUB_NAME}/themes/Grub-Theme/${THEME_NAME}/theme.txt" >> /etc/default/grub
 }
 
-function copy_papirus_files() {
+function copy_files() {
   echo -e "\e[1m\e[32m==> \e[97mDownloading files...\e[0m"
-  git clone https://github.com/osmanonurkoc/Papirus-Grub-Theme /tmp/Papirus-Grub-Theme
+  git clone https://github.com/Utkarsh-0192a/grub.git /tmp/Grub-Theme
   echo -e "\e[1m\e[32m==> \e[97mCopying files...\e[0m"
-  cp -rf /tmp/Papirus-Grub-Theme/Papirus /boot/${GRUB_NAME}/themes/
+  cp -rf /tmp/Grub-Theme /boot/${GRUB_NAME}/themes/
 }
 
 function main() {
@@ -39,7 +41,7 @@ function main() {
   else
 	  GRUB_NAME="grub2"
   fi
-  copy_papirus_files
+  copy_files
 
   echo -e "\e[1m\e[97m  You must set the theme in your GRUB config file,"
   while : ;do
@@ -51,6 +53,10 @@ function main() {
       if [ "$answer" = "y" ];then
 	# backup old grub file
 	cp /etc/default/grub /tmp/grub$(date '+%m-%d-%y_%H:%M:%S')
+ 	# read -p "  Want to change theme(default Aesthetic " -t 10 answer
+  # 	if [ "$answer" = "y" ];then
+  #  	read -p "  enter theme name(default Aesthetic " -t 10 THEME_NAME
+  	
 	update_grub_file
         compile_grub
 	break
