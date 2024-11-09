@@ -37,13 +37,4 @@ GRUB_THEME=/boot/grub/themes/Windows/theme.txt
            or
     sudo grub-mkconfig -o /boot/grub/grub.cfg 
 
-# Minimal
-![Minimal](https://github.com/MrVivekRajan/Grub-Themes/assets/85994908/7fab7ba5-9008-4283-8b27-428b7168405c)
-
-# Cool - Aesthetic - Stylish
-![cool](https://github.com/MrVivekRajan/Grub-Themes/assets/85994908/85dc9a2d-42a7-4ad3-9f71-c2a0ee57669c)
-
-# WINDOWS - Preview
-https://github.com/MrVivekRajan/Grub-Themes/assets/85994908/92712653-e448-4ad5-a4c3-56401d786e7b
-
 <h4> <span>· </span> <a href="https://github.com/MrVivekRajan/Grub-Themes/"> from </a> <span> · </span> <a href="https://github.com/MrVivekRajan/Grub-Themes/issues"> owner </a> </h4>
