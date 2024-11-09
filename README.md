@@ -37,4 +37,3 @@ GRUB_THEME=/boot/grub/themes/Windows/theme.txt
            or
     sudo grub-mkconfig -o /boot/grub/grub.cfg 
 
-<h4> <span>· </span> <a href="https://github.com/MrVivekRajan/Grub-Themes/"> from </a> <span> · </span> <a href="https://github.com/MrVivekRajan/Grub-Themes/issues"> owner </a> </h4>
